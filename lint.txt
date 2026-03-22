@@ -1,0 +1,28 @@
+
+C:\Antigravity\calculator\app\layout.tsx
+  18:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+C:\Antigravity\calculator\components\Calculator.tsx
+  87:9  warning  The 'activeTradeData' logical expression could make the dependencies of useMemo Hook (at line 103) change on every render. To fix this, wrap the initialization of 'activeTradeData' in its own useMemo() Hook  react-hooks/exhaustive-deps
+  87:9  warning  The 'activeTradeData' logical expression could make the dependencies of useMemo Hook (at line 130) change on every render. To fix this, wrap the initialization of 'activeTradeData' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Antigravity\calculator\components\Tooltip.tsx
+  19:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Antigravity\calculator\components\Tooltip.tsx:19:9
+  17 |       const rect = triggerRef.current.getBoundingClientRect();
+  18 |       if (rect.top < 80) {
+> 19 |         setPosition('bottom');
+     |         ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  20 |       } else {
+  21 |         setPosition('top');
+  22 |       }  react-hooks/set-state-in-effect
+
+✖ 4 problems (1 error, 3 warnings)
+
